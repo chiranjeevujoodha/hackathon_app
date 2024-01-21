@@ -1,65 +1,11 @@
-{% load static %}
+{% extends 'app/base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'app/css/styles.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
-    <title>Hackathon | Home</title>
-</head>
-<body>
+{% block content %}
+
   <div class="page1">
 
   
 
-    <nav class="navbar navbar-expand-lg  ">
-        <div class="container-fluid">
-  
-          <a class="navbar-brand" href="#">BetterTomorrow</a>
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <div class="collapse navbar-collapse navbar-custom" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="projects.html">Campaigns</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
-              </li> -->
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
-              </li>
-  
-            </ul>
-          </div>
-  
-          <div class="collapse navbar-collapse justify-content-end navbar-custom" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item d-flex align-items-center">
-                <a class="nav-link" href="signin.html">Sign In</a>
-              </li>
-              <li class="nav-item">
-                <button id="signup" class="btn btn-primary"><a class="nav-link" href="signup.html">Sign Up</a></button>
-              </li>
-              
-  
-            </ul>
-          </div>
-  
-        </div>
-      </nav>
 
       <div class="banner mt-5 pt-md-5">
         <div class="banner-box text-center mt-5 pt-5">
@@ -155,5 +101,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-</body>
-</html>
+
+
+
+{% endblock %}
