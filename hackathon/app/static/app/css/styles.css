@@ -1,0 +1,455 @@
+/* {% load static %} */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------- */
+/* NAVBAR */
+
+
+.navbar-custom a {
+    color: black;
+    font-weight: bolder;
+}
+
+
+
+
+#signup a {
+    color:whitesmoke;
+}
+
+
+
+/* ------------------------------------------------------------------------------ */
+/* HOMEPAGE / INDEX  */
+
+.page1 {
+    height: 100vh;
+    /* background-image: url('./images/photo-1565803974275-dccd2f933cbb.jpeg'); */
+    background-image: url('../images/photo-1565803974275-dccd2f933cbb.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+
+.main {
+    height: 100%;
+    width: 90%;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.banner {
+    height: 30%;
+    width: 90%;
+    color: white;
+    gap: 15%;
+    /* border: 1px solid red; */
+    display: flex;
+    margin: 0 auto;
+   
+    
+    align-items: center;
+    justify-content: center;
+  
+}
+
+
+
+
+
+
+.banner a{
+    color: white;
+    text-decoration: none;
+}
+
+.sub-footer {
+    /* border: 1px solid red; */
+    margin-top: 20px;
+    /* height: 50vh; */
+}
+
+.sub-footer .container {
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.sub-footer .footer-box {
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.footer-box button {
+    width: 50%;
+}
+
+.footer-box button a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ------------------------------------- */
+
+/* ABOUT */
+
+.about {
+    /* height: 40%; */
+    /* border: 1px solid red; */
+    background-color: #f2e8cf;
+    /* padding-bottom: 10; */
+}
+
+.about-title {
+    /* border: 1px solid black; */
+    height: 10%;
+}
+
+.about-content {
+    /* border: 1px solid black; */
+    /* height: 90%; */
+    width: 40%;
+    
+    white-space: wrap;
+    overflow: auto;
+    text-overflow: ellipsis; /* or use 'clip' */
+    
+    
+}
+
+@media (max-width:375px) {
+    .about-content h3 {
+        font-size: 10px;
+
+    .about-title h2 {
+        font-size: 15px;
+    }
+    }
+}
+
+
+
+
+.social-links {
+    /* border: 1px solid red; */
+    /* height: 30px; */
+}
+
+.social-links i {
+    font-size: 2rem;
+}
+
+.sitemap a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+/* ----------------------------------------------------------------- */
+/* CONTACT PAGE */
+/* 
+
+
+.container {
+    border: 1px solid red;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+} */
+
+
+
+.page-contact {
+    /* border: 1px solid black; */
+    height: calc(100vh - 56px);
+    /* padding-top: 10em; */
+}
+
+
+.text-container h1 {
+    padding-top: 50px;
+    padding-left: 30px;
+    font-size: 3em;
+}
+
+.text-container p {
+    padding-top: 10px;
+    padding-left: 30px;
+    font-size: 1.5em;
+}
+
+.form-container {
+    /* border: 1px solid blue; */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* height: 100%;
+    width:40%; */
+    
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-container input, textarea {
+
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;   
+  border-color: white;
+  border: none;
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.form-container button {
+
+        background-color: #007bff;
+        width: 50%;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    
+      
+}
+
+
+.form-container button:hover {
+    background-color: #0056b3;
+  }
+
+
+
+  /* -------------------------------------------------------------------- */
+
+  /* Projects campaigns page */
+
+.header {
+    height: 100px;
+    width: 100%;
+    background-color: #0056b3;
+    color: whitesmoke;
+    /* border: 1px solid red; */
+}
+
+
+
+
+.add-new-btn {
+    /* border: 1px solid black; */
+    width: 80%;
+    margin: 20px auto;
+    
+}
+
+.add-new-btn button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #0056b3;
+    color: whitesmoke;
+}
+
+.add-new-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.campaigns-box {
+    /* border: 1px solid black;     */
+    height: 100%;
+    width: 80%;
+    flex-direction: column;
+    margin: 0 auto
+    
+
+    
+}
+
+
+
+.campaigns {
+    height: 20%;
+    width: 100%;
+    /* border: 1px solid red; */
+    border-bottom: 1px solid black;
+    padding: 30px 10px;
+    
+
+}
+
+.campaigns h2 {
+    font-weight: 900;
+    font-size: 1.5rem;
+   
+}
+
+.campaigns h5 {
+    /* font-weight: 600; */
+    font-size: 1rem;
+}
+
+.campaigns button {
+    background-color: #0056b3;
+    border: none;
+}
+
+
+
+
+.new-campaign {
+    
+    width: 100%;
+    /* border: 1px solid black; */
+    background-color: #fff;
+    margin: 5%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.new-campaign label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.new-campaign input, textarea {
+
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;   
+  border-color: white;
+  border: none;
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.new-campaign button {
+
+        background-color: #007bff;
+        width: 50%;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+}
+
+
+
+.campaign-description h5 {
+    font-weight: bolder;
+}
+
+.campaign-btns h5 {
+    font-weight: bolder;
+}
+
+/* --------------------------------------------------------------------- */
+/* signin */
+
+/* .signin-container {
+    border: 1px solid black;
+    height: 50vh;
+} */
+
+.signin-container {
+    /* border: 1px solid blue; */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    
+}
+
+.signin-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.signin-container input, textarea {
+
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;   
+  border-color: white;
+  border: none;
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.signin-container button {
+
+        background-color: #007bff;
+        width: 50%;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    
+      
+}
+
+
+.signin-container button:hover {
+    background-color: #0056b3;
+  }
+
+  .signin-header a {
+    text-decoration: none;
+    
+  }
+
+  #forgotpassword {
+    text-decoration: none;
+  }
+
+
+
+
+
+
+/* --------------------------------------------------------------------- */
+/* FOOTER */
+
+
+.footer {
+    height: 4vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
