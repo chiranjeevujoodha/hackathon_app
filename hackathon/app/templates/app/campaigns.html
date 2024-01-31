@@ -141,23 +141,24 @@
                 <hr>
                 
 
-                <form action="" id="campaignForm">
+                <form method="post" action="" id="campaignForm">
+                    {% csrf_token %}
                     <label for="name">Name of Campaign</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" required>
       
                     <label for="organisor">Organisor</label>
-                    <input type="text" id="organisor" required>
+                    <input type="text" id="organisor" name="organisor" required>
       
                     <label for="location">Location</label>
-                    <input type="text" id="location" required>
+                    <input type="text" id="location" name="location" required>
 
                     <label for="date">Date</label>
-                    <input type="date" id="date" >
+                    <input type="date" id="date" name="date" >
       
                     <label for="description">Description</label>
-                    <textarea type="text" id="description" rows="4" ></textarea>
+                    <textarea type="text" id="description" rows="4" name="description" ></textarea>
       
-                    <button type="submit" id="campaign-btn" onclick="submitForm()" >Submit</button>
+                    <button type="submit" id="campaign-btn" >Submit</button>
                 </form>
             </div>
 
