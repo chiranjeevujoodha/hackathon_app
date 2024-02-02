@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<!-- <div class="container">
     <h3>Create your account</h3>
 
     <br>
@@ -25,10 +25,10 @@
         <p>Already have an account?</p> <a href="{% url 'signin' %}">Login</a>
     </div>
 
-</div>
+</div> -->
 
 
-<!-- <body>
+<body>
 
     <div class=" container mt-5 col-lg-4">
         <div class="signin-container">
@@ -40,10 +40,13 @@
             </div>
             <hr>
               <label for="username">Username</label>
-              <input type="text" id="username" name="username" required>
+              {{ form.username }}
 
               <label for="password">Password</label>
-              <input type="password" id="password" name="password" required>
+              {{ form.password1 }}
+
+              <label for="password">Confirm Password</label>
+              {{ form.password2 }}
 
 
             <div class="d-flex justify-content-center">
@@ -55,5 +58,5 @@
 
       </div>
     
-</body> -->
+</body>
 {% endblock %}

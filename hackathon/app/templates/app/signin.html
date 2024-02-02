@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<!-- <div class="container">
     <h3>Login to your account</h3>
 
     <br>
@@ -25,10 +25,10 @@
         <p>Don't have an account?</p> <a href="{% url 'signup' %}">Register</a>
     </div>
 
-</div>
+</div> -->
 
 
-<!-- <body>
+<body>
 
     <div class=" container mt-5 col-lg-4">
         <div class="signin-container">
@@ -40,10 +40,10 @@
             </div>
             <hr>
               <label for="username">Username</label>
-              <input type="text" id="username" name="username" required>
+              {{form.username}}
 
               <label for="password">Password</label>
-              <input type="password" id="password" name="password" required>
+                {{form.password}}
 
             <p><a id="forgotpassword" href="#">Forgot password</a></p>
 
@@ -55,6 +55,6 @@
 
       </div>
     
-</body> -->
+</body>
 
 {% endblock %}
