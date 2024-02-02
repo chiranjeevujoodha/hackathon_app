@@ -21,8 +21,6 @@ html, body {
 }
 
 
-
-
 #signup a {
     color:whitesmoke;
 }
@@ -35,7 +33,7 @@ html, body {
 .page1 {
     height: 100vh;
     /* background-image: url('./images/photo-1565803974275-dccd2f933cbb.jpeg'); */
-    background-image: url('../images/photo-1565803974275-dccd2f933cbb.jpeg');
+    background-image: url('../images/photo-1565803974275-dccd2f933cbb.jpeg');   
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -108,7 +106,7 @@ html, body {
 .about {
     /* height: 40%; */
     /* border: 1px solid red; */
-    background-color: #f2e8cf;
+    background-color: #fef9ef;
     /* padding-bottom: 10; */
 }
 

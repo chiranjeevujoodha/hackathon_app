@@ -15,8 +15,40 @@
           </div>
     
         {% endif %}
+
+
+        <div class="campaigns-box" >
+            {% for item in data %}
+            <div class="campaigns item-1">
     
-          <div class="campaigns-box" >
+                <div class="campaign-title">
+                    <h2>{{ item.name }}</h2>
+                </div>
+    
+                <div class="details row">
+                    <div class="campaign-details col-12 col-lg-4">
+                        <h5>Organisor: {{ item.organisor }} </h5>
+                        <h5>Location: {{ item.location }}</h5>
+                        <h5>Date: 23 December 2023</h5>
+                    </div>
+        
+                    <div class="campaign-description col-12 col-lg-4">
+                        <h5>Description:</h5>
+                        <p>{{ item.description }}</p>
+                    </div>
+        
+                    <div class="campaign-btns col-12 col-lg-4">
+                        <h5>Participate</h5>
+                        <button id="btn1" class="btn btn-primary btn-custom" data-toggle="modal" data-target="#myModal" onclick="interested(this)">Interested</button>
+                    </div>
+    
+                </div>
+    
+            </div>
+            {% endfor %}
+        </div>
+    
+          <!-- <div class="campaigns-box" >
             <div class="campaigns item-1">
     
                 <div class="campaign-title">
@@ -44,7 +76,7 @@
     
             </div>
 
-            <!-- <hr> -->
+           
 
             <div class="campaigns item-2">
     
@@ -134,7 +166,7 @@
     
     
     
-          </div>
+          </div> -->
 
           {% if user.is_authenticated %}
 

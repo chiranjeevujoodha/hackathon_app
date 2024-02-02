@@ -19,7 +19,7 @@
 
     </div>
 
-  </div>
+  </div>  
 
   <div class="about pt-md-5 pb-md-5">
     <div class="about-title text-center">
@@ -49,19 +49,19 @@
         <div class="col footer-box sitemap" >
           <h5>Sitemap</h5>
           <ul class="d-flex flex-column fw-semibold">
-            <a href="#">Home</a>
-            <a href="projects.html">Campaigns</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'campaigns' %}">Campaigns</a>
+            <a href="{% url 'contact' %}">Contact Us</a>
           </ul>
         </div>
         <div class="col footer-box">
           <div class="footer-signin pb-2">
             <h5>Already a member?</h5>
-            <button class="btn btn-primary"><a href="signin.html">Sign-in</a></button>
+            <button class="btn btn-primary" ><a href="{% url 'signin' %}" >Sign-in</a></button>
           </div>
           <div class="footer-signup pb-2">
             <h5>Become a member!</h5>
-            <button class="btn btn-primary"><a href="signup.html">Sign-up</a></button>
+            <button class="btn btn-primary"><a href="{% url 'signup' %}">Sign-up</a></button>
           </div>
 
         </div>
