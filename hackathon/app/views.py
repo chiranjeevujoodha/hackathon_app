@@ -1,5 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Campaign
+from .forms import CreateUserForm, LoginForm
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import auth
 
 
 # Create your views here.
@@ -19,3 +22,51 @@ def campaigns(request):
 
 def contact(request):
     return render(request, 'app/contact.html')
+
+
+def signin(request):
+
+    form = LoginForm()
+
+    if request.method == 'POST':
+        form = LoginForm(request, data = request.POST)
+
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                auth.login(request, user)
+                return redirect('home')
+            
+    context = {'form':form}
+
+    return render(request, 'app/signin.html', context=context)
+
+
+
+
+def signup(request):
+
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('signin')
+    
+    context = {'form':form}
+
+
+    return render(request, 'app/signup.html', context=context)
+
+
+
+
+def signout(request):
+    auth.logout(request)
+    return redirect('signin')

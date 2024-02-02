@@ -8,11 +8,13 @@
 
       <div class="camp-container">
 
+        {% if user.is_authenticated %}
+
           <div class="add-new-btn">
             <button class="btn btn-primary" ><a href="#campaigns-form">Add New Campaign</a></button>
           </div>
     
-    
+        {% endif %}
     
           <div class="campaigns-box" >
             <div class="campaigns item-1">
@@ -134,14 +136,13 @@
     
           </div>
 
-          <div class="container new-campaign" id="campaigns-form">
+          {% if user.is_authenticated %}
 
+          <div class="container new-campaign" id="campaigns-form">
             <div class="new-campaign-form">
                 <h5 class="text-center">Add New Campaign</h5>
-                <hr>
-                
-
-                <form method="post" action="" id="campaignForm">
+                <hr>               
+                <form method="post" id="campaignForm">
                     {% csrf_token %}
                     <label for="name">Name of Campaign</label>
                     <input type="text" id="name" name="name" required>
@@ -163,6 +164,8 @@
             </div>
 
           </div>
+
+          {% endif %}
 
       </div>
 

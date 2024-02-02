@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h3>Login to your account</h3>
+
+    <br>
+    <hr>
+
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <br>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+
+    <br>
+
+    <div class='text-center'>
+        <p>Don't have an account?</p> <a href="{% url 'signup' %}">Register</a>
+    </div>
+
+</div>
+
+
+<!-- <body>
+
+    <div class=" container mt-5 col-lg-4">
+        <div class="signin-container">
+          <form action="">
+            <div class="signin-header text-center">
+                <h1>Sign in</h1>
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+            <hr>
+              <label for="email">Email</label>
+              <input type="text" id="email" required>
+
+              <label for="password">Password</label>
+              <input type="password" id="password" required>
+
+            <p><a id="forgotpassword" href="#">Forgot password</a></p>
+
+            <div class="d-flex justify-content-center">
+                <button  type="submit" id="signin-btn" >Sign in</button>
+            </div>
+          </form>
+      </div>
+
+      </div>
+    
+</body> -->
+
+{% endblock %}
