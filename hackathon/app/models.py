@@ -13,7 +13,7 @@ class Campaign(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}, {self.organisor}'
     
 class Contact(models.Model):
     fname = models.CharField(max_length=50)
@@ -22,4 +22,4 @@ class Contact(models.Model):
     message = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.fname, self.lname
+        return f'{self.fname} {self.lname}'

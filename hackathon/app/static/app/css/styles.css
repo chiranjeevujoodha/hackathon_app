@@ -99,6 +99,20 @@ html, body {
     text-decoration: none;
 }
 
+.social-links {
+    /* border: 1px solid red; */
+    /* height: 30px; */
+}
+
+.social-links i {
+    font-size: 2rem;
+}
+
+.sitemap a {
+    text-decoration: none;
+    color: black;
+}
+
 /* ------------------------------------- */
 
 /* ABOUT */
@@ -140,19 +154,7 @@ html, body {
 
 
 
-.social-links {
-    /* border: 1px solid red; */
-    /* height: 30px; */
-}
 
-.social-links i {
-    font-size: 2rem;
-}
-
-.sitemap a {
-    text-decoration: none;
-    color: black;
-}
 
 
 
