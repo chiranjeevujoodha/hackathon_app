@@ -15,6 +15,7 @@ class Campaign(models.Model):
     def __str__(self):
         return f'{self.name}, {self.organisor}'
     
+    
 class Contact(models.Model):
     fname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
