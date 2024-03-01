@@ -60,7 +60,7 @@ def campaigns(request):
         date = request.POST.get('date')
         description = request.POST.get('description')
         
-        Campaign.objects.create(name=name, author=author, organisor=organisor, location=location, date=date, description=description)
+        Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
     return render(request, 'app/campaigns.html', {'data': data})
     
 
@@ -107,7 +107,7 @@ def signin(request):
 
             if user is not None:
                 auth.login(request, user)
-                return redirect('home')
+                return redirect('campaigns')
             
     context = {'form':form}
 

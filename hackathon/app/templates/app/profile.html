@@ -11,11 +11,39 @@
 
 <h1>Welcome, {{ request.user.username }} {{ request.user.id }}</h1> 
 
-{% for item in data %}
-    {{ item.name }}
-    {{ item.location }}
-    {{ item.author_id }}
-{% endfor %}
+
+    <div class="campaigns-box" >
+        {% for item in data %}
+        <div class="campaigns item-1">
+
+            <div class="campaign-title">
+                <h2>{{ item.name }}</h2>
+                <h2>{{ item.author_id }}</h2>
+            </div>
+
+            <div class="details row">
+                <div class="campaign-details col-12 col-lg-4">
+                    <h5>Organisor: {{ item.organisor }} </h5>
+                    <h5>Location: {{ item.location }}</h5>
+                    <h5>Date: {{ item.date }}</h5>
+                </div>
+
+                <div class="campaign-description col-12 col-lg-4">
+                    <h5>Description:</h5>
+                    <p>{{ item.description }}</p>
+                </div>
+
+                <div class="campaign-btns col-12 col-lg-4">
+                    
+                    <button id="btn1" class="btn btn-primary btn-custom" ><a href="{% url 'update_campaign' %}">Edit</a></button>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
 
 {% endif %}
 
