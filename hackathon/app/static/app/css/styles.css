@@ -278,6 +278,11 @@ html, body {
     text-decoration: none;
 }
 
+
+/* .camp-container {
+    height: 100%;
+} */
+
 .campaigns-box {
     /* border: 1px solid black;     */
     height: 100%;
@@ -292,7 +297,7 @@ html, body {
 
 
 .campaigns {
-    height: 20%;
+    /* height: 20%; */
     width: 100%;
     /* border: 1px solid red; */
     border-bottom: 1px solid black;

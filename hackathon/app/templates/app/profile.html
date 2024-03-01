@@ -9,7 +9,13 @@
 {% if request.user.is_authenticated %}
 
 
-<h1>Welcome, {{ request.user.username }}</h1> 
+<h1>Welcome, {{ request.user.username }} {{ request.user.id }}</h1> 
+
+{% for item in data %}
+    {{ item.name }}
+    {{ item.location }}
+    {{ item.author_id }}
+{% endfor %}
 
 {% endif %}
 

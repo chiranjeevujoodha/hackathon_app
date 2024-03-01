@@ -10,6 +10,8 @@ from . serializer import *
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework import status
+from django.contrib.auth.decorators import login_required
+
 
 
 # @api_view(['POST'])
@@ -81,10 +83,12 @@ def contact(request):
 
     return render(request, 'app/contact.html')
 
+@login_required
 def profile(request):
-    authors = User.objects.all()
+    user_id = request.user.id
+    data = Campaign.objects.filter(author_id = user_id)
 
-    return render(request, 'app/profile.html', {'authors':authors})
+    return render(request, 'app/profile.html', {'data': data})
 
 
 
