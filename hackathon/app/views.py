@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.views.generic import UpdateView
 from .models import Campaign, Contact
 from .forms import CreateUserForm, LoginForm
 from django.contrib.auth import authenticate
@@ -48,6 +49,7 @@ def home(request):
 
 def campaigns(request):
     data = Campaign.objects.all()
+    author = request.user
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -56,11 +58,17 @@ def campaigns(request):
         date = request.POST.get('date')
         description = request.POST.get('description')
         
-        Campaign.objects.create(name=name, organisor=organisor, location=location, date=date, description=description)
+        Campaign.objects.create(name=name, author=author, organisor=organisor, location=location, date=date, description=description)
     return render(request, 'app/campaigns.html', {'data': data})
+    
 
 def update_campaign(request):
     return render(request, 'app/update_campaign.html')
+
+class UpdateCampaign(UpdateView):
+    model = Campaign
+    template_name = 'update_campaign.html'
+    fields = ['name', 'organisor', 'location', 'date', 'description']
 
 def contact(request):
     if request.method == 'POST':
@@ -74,7 +82,9 @@ def contact(request):
     return render(request, 'app/contact.html')
 
 def profile(request):
-    return render(request, 'app/profile.html')
+    authors = User.objects.all()
+
+    return render(request, 'app/profile.html', {'authors':authors})
 
 
 

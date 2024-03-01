@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 # Create your models here.
@@ -40,6 +41,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 class Campaign(models.Model):
     name = models.CharField(max_length=200)
     organisor = models.CharField(max_length=50)
+    author = models.ForeignKey(User, on_delete = models.CASCADE)
     location = models.CharField(max_length=50)
     date = models.DateField()
     description = models.TextField(null=True, blank=True)
@@ -47,7 +49,7 @@ class Campaign(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.name}, {self.organisor}'
+        return f'{self.name}, {self.organisor}, {self.author}'
     
     
 class Contact(models.Model):
