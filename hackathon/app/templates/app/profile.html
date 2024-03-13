@@ -8,8 +8,10 @@
 
 {% if request.user.is_authenticated %}
 
-
-<h1>Welcome, {{ request.user.username }} {{ request.user.id }}</h1> 
+<div class="profile-banner text-center">
+    <h1>Welcome, {{ request.user.username }}. </h1> 
+    <h1>Your Campaigns:</h1>
+</div>
 
 
     <div class="campaigns-box" >
@@ -35,7 +37,8 @@
 
                 <div class="campaign-btns col-12 col-lg-4">
                     
-                    <button id="btn1" class="btn btn-primary btn-custom" ><a href="{% url 'update_campaign' %}">Edit</a></button>
+                    <button id="btn_edit" class="btn btn-primary btn-custom" ><a href="/update/{{item.id}}">Edit</a></button>
+                    <!-- <button id="btn_delete" class="btn btn-danger btn-custom" ><a href="">Delete</a></button> -->
                 </div>
 
             </div>

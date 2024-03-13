@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.views.generic import UpdateView
 from .models import Campaign, Contact
-from .forms import CreateUserForm, LoginForm
+from .forms import CreateUserForm, LoginForm, CampaignForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import auth, User
 from rest_framework.views import APIView
@@ -11,6 +11,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -49,8 +50,27 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'app/home.html')
 
+
+def campaignform(request):
+    form = CampaignForm()
+    return render(request, 'app/campaignform.html', {'form':form})
+
+
 def campaigns(request):
     data = Campaign.objects.all()
+    # author = request.user
+
+    # if request.method == 'POST':
+    #     name = request.POST.get('name')
+    #     organisor = request.POST.get('organisor')
+    #     location = request.POST.get('location')
+    #     date = request.POST.get('date')
+    #     description = request.POST.get('description')
+        
+    #     Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
+    return render(request, 'app/campaigns.html', {'data': data})
+    
+def add_campaign(request):
     author = request.user
 
     if request.method == 'POST':
@@ -61,11 +81,32 @@ def campaigns(request):
         description = request.POST.get('description')
         
         Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
-    return render(request, 'app/campaigns.html', {'data': data})
-    
+        return redirect('campaigns')
 
-def update_campaign(request):
-    return render(request, 'app/update_campaign.html')
+    return render(request, 'app/add_campaign.html')
+
+def update_campaign(request, id):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        organisor = request.POST.get('organisor')
+        location = request.POST.get('location')
+        date = request.POST.get('date')
+        description = request.POST.get('description')
+
+        query = Campaign.objects.get(id = id)
+        query.name = name
+        query.organisor = organisor
+        query.location = location
+        query.date = date
+        query.description = description
+        query.save()
+
+        return redirect('profile')
+
+
+    item = Campaign.objects.get(id = id)
+    context = {'item':item}
+    return render(request, 'app/update_campaign.html', context)
 
 class UpdateCampaign(UpdateView):
     model = Campaign

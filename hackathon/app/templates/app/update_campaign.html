@@ -8,25 +8,27 @@
     <div class="new-campaign-form">
         <h5 class="text-center">Update Campaign</h5>
         <hr>               
-        <form method="post" id="campaignForm">
+       
+        <form action="/update/{{item.id}}" method="post" id="campaignForm">
             {% csrf_token %}
             <label for="name">Name of Campaign</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" value="{{item.name}}" required>
 
             <label for="organisor">Organisor</label>
-            <input type="text" id="organisor" name="organisor" required>
+            <input type="text" id="organisor" name="organisor" value="{{item.organisor}}" required>
 
             <label for="location">Location</label>
-            <input type="text" id="location" name="location" required>
+            <input type="text" id="location" name="location" value="{{item.location}}" required>
 
             <label for="date">Date</label>
-            <input type="date" id="date" name="date" >
+            <input type="date" id="date" name="date" value="{{item.date|date:'Y-m-d'}}" >
 
             <label for="description">Description</label>
-            <textarea type="text" id="description" rows="4" name="description" ></textarea>
+            <textarea type="text" id="description" rows="4" name="description"  >{{item.description}}</textarea>
 
             <button type="submit" id="campaign-btn" >Submit</button>
         </form>
+        
     </div>
 
   </div>

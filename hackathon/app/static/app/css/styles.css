@@ -378,11 +378,20 @@ html, body {
 /* --------------------------------------------------------------------- */
 /* Profile page */
 
-#btn1 a {
+#btn_edit a {
     color: white;
     text-decoration: none;
 }
 
+#btn_delete a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+#btn_delete {
+    background-color: #DC3545;
+}
 
 
 /* --------------------------------------------------------------------- */
