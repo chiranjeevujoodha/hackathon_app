@@ -13,8 +13,7 @@
         {% if user.is_authenticated %}
 
           <div class="add-new-btn">
-            <button class="btn btn-primary" ><a href="{% url 'add_campaign' %}">Add New Campaign</a></button>
-
+            <a class="btn btn-primary" href="{% url 'add_campaign' %}">Add New Campaign</a>
           </div>
     
         {% endif %}

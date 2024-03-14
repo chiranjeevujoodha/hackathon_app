@@ -14,6 +14,7 @@ urlpatterns = [
     path('campaignform/', views.campaignform, name='campaignform'),
     path('add/', views.add_campaign, name='add_campaign'),
     path('update/<id>', views.update_campaign, name='update_campaign'),
+    path('delete/<id>', views.delete_campaign, name='delete_campaign'),
     path('contact/', views.contact, name='contact'),
     path('signin/', views.signin, name='signin'),
     path('signup/', views.signup, name='signup'),

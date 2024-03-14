@@ -108,6 +108,13 @@ def update_campaign(request, id):
     context = {'item':item}
     return render(request, 'app/update_campaign.html', context)
 
+def delete_campaign(request,id):
+    item = Campaign.objects.get(id = id)
+    item.delete()
+    return redirect('profile')
+
+
+
 class UpdateCampaign(UpdateView):
     model = Campaign
     template_name = 'update_campaign.html'
