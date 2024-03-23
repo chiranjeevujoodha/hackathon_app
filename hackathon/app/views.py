@@ -11,6 +11,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.contrib.auth.decorators import login_required
+from datetime import date
 
 # Create your views here.
 
@@ -24,12 +25,22 @@ def campaignform(request):
 
 
 def campaigns(request):
-
+    today_date = date.today()
+    
+    # print(today_date)
     if 'q' in request.GET:
         q = request.GET['q']
         data = Campaign.objects.filter(name__icontains=q)
     else:
-        data = Campaign.objects.all()
+        data = Campaign.objects.all().order_by('date')
+
+    today_data = Campaign.objects.filter(date=today_date)
+
+    context = {
+            'today_data': today_data,
+            'data': data
+    }
+
     # author = request.user
 
     # if request.method == 'POST':
@@ -40,7 +51,7 @@ def campaigns(request):
     #     description = request.POST.get('description')
         
     #     Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
-    return render(request, 'app/campaigns.html', {'data': data})
+    return render(request, 'app/campaigns.html', context)
     
 @login_required
 def add_campaign(request):
