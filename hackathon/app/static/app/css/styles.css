@@ -391,6 +391,12 @@ html, body {
 
 #btn_delete {
     background-color: #DC3545;
+    border-color: #DC3545;
+}
+
+#btn_delete:hover {
+    background-color: #da0d21;
+    border-color: #da0d21;
 }
 
 

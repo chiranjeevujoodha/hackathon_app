@@ -30,9 +30,9 @@ def campaigns(request):
     # print(today_date)
     if 'q' in request.GET:
         q = request.GET['q']
-        data = Campaign.objects.filter(name__icontains=q)
+        data = Campaign.objects.filter(name__icontains=q,date__gt=today_date )
     else:
-        data = Campaign.objects.all().order_by('date')
+        data = Campaign.objects.filter(date__gt=today_date).order_by('date')
 
     today_data = Campaign.objects.filter(date=today_date)
 
@@ -41,16 +41,6 @@ def campaigns(request):
             'data': data
     }
 
-    # author = request.user
-
-    # if request.method == 'POST':
-    #     name = request.POST.get('name')
-    #     organisor = request.POST.get('organisor')
-    #     location = request.POST.get('location')
-    #     date = request.POST.get('date')
-    #     description = request.POST.get('description')
-        
-    #     Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
     return render(request, 'app/campaigns.html', context)
     
 @login_required
@@ -69,6 +59,7 @@ def add_campaign(request):
 
     return render(request, 'app/add_campaign.html')
 
+@login_required
 def update_campaign(request, id):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -92,6 +83,7 @@ def update_campaign(request, id):
     context = {'item':item}
     return render(request, 'app/update_campaign.html', context)
 
+@login_required
 def delete_campaign(request,id):
     item = Campaign.objects.get(id = id)
     item.delete()
@@ -120,7 +112,7 @@ def profile(request):
 @login_required
 def dashboard(request):
     user_id = request.user.id
-    data = Campaign.objects.filter(author_id = user_id)
+    data = Campaign.objects.filter(author_id = user_id).order_by('date')
 
     return render(request, 'app/dashboard.html', {'data': data})
 
