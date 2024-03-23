@@ -8,8 +8,7 @@ from app.views import *
 
 urlpatterns = [
     
-    path('', views.home, name='home'),
-    # path('api/', ContactView.as_view(), name='api'),
+    path('', views.campaigns, name='home'),
     path('campaigns/', views.campaigns, name='campaigns'),
     path('campaignform/', views.campaignform, name='campaignform'),
     path('add/', views.add_campaign, name='add_campaign'),
@@ -20,10 +19,8 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('signout/', views.signout, name='signout'),
     path('profile/', views.profile, name='profile'),
-    # path('api/campaigns/', views.add_campaign, name='add_campaign'),
-    # path('api/campaigns/all', views.get_campaigns, name='get_campaigns'),
-    # path('api/contacts/', views.add_contact, name='add_contact'),
-    # path('api/contacts/all', views.get_contacts, name='get_contacts'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+
 ]
 
 

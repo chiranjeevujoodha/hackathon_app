@@ -12,39 +12,6 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from django.contrib.auth.decorators import login_required
 
-
-
-
-# @api_view(['POST'])
-# def add_campaign(request):
-#     serializer = CampaignSerializer(data=request.data)
-#     if serializer.is_valid():
-#         serializer.save()
-#         return Response(serializer.data, status=status.HTTP_201_CREATED)
-#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-# @api_view(['GET'])
-# def get_campaigns(request):
-#     campaigns = Campaign.objects.all()
-#     serializer = CampaignSerializer(campaigns, many=True)
-#     return Response(serializer.data)
-
-
-# @api_view(['POST'])
-# def add_contact(request):
-#     serializer = ContactSerializer(data=request.data)
-#     if serializer.is_valid():
-#         serializer.save()
-#         return Response(serializer.data, status=status.HTTP_201_CREATED)
-#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-# @api_view(['GET'])
-# def get_contacts(request):
-#     contacts = Contact.objects.all()
-#     serializer = ContactSerializer(contacts, many=True)
-#     return Response(serializer.data)
-
-
 # Create your views here.
 
 def home(request):
@@ -57,7 +24,12 @@ def campaignform(request):
 
 
 def campaigns(request):
-    data = Campaign.objects.all()
+
+    if 'q' in request.GET:
+        q = request.GET['q']
+        data = Campaign.objects.filter(name__icontains=q)
+    else:
+        data = Campaign.objects.all()
     # author = request.user
 
     # if request.method == 'POST':
@@ -70,6 +42,7 @@ def campaigns(request):
     #     Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
     return render(request, 'app/campaigns.html', {'data': data})
     
+@login_required
 def add_campaign(request):
     author = request.user
 
@@ -101,7 +74,7 @@ def update_campaign(request, id):
         query.description = description
         query.save()
 
-        return redirect('profile')
+        return redirect('dashboard')
 
 
     item = Campaign.objects.get(id = id)
@@ -111,14 +84,8 @@ def update_campaign(request, id):
 def delete_campaign(request,id):
     item = Campaign.objects.get(id = id)
     item.delete()
-    return redirect('profile')
+    return redirect('dashboard')
 
-
-
-class UpdateCampaign(UpdateView):
-    model = Campaign
-    template_name = 'update_campaign.html'
-    fields = ['name', 'organisor', 'location', 'date', 'description']
 
 def contact(request):
     if request.method == 'POST':
@@ -134,10 +101,17 @@ def contact(request):
 @login_required
 def profile(request):
     user_id = request.user.id
+    # organisor = User.objects.get(id=id)
+    # data = Campaign.objects.filter(author_id = user_id)
+
+    return render(request, 'app/profile.html')
+
+@login_required
+def dashboard(request):
+    user_id = request.user.id
     data = Campaign.objects.filter(author_id = user_id)
 
-    return render(request, 'app/profile.html', {'data': data})
-
+    return render(request, 'app/dashboard.html', {'data': data})
 
 
 def signin(request):
@@ -180,42 +154,12 @@ def signup(request):
 
     return render(request, 'app/signup.html', context=context)
 
-# def signup(request):
 
-#     if request.method == 'POST':
-#         username = request.POST.get('username')
- 
-#         password = request.POST.get('password')
-
-#         user = User.objects.create(username=username, password=password)
-
-#         return redirect('signin')
-
-
-#     return render(request, 'app/signup.html')
 
 def signout(request):
     auth.logout(request)
     return redirect('signin')
 
 
-
-# class ContactView(APIView):
-#     def get(self, request):
-#         output = [{
-#             'fname': output.fname,
-#             'lname': output.lname,
-#             'email': output.email,
-#             'message': output.message}
-#             for output in Contact.objects.all()
-#         ]
-#         return Response(output)
-#     def post(self, request):
-#         print('ajaj')
-#         serializer = ContactSerializer(data=request.data)
-#         print(serializer)
-#         if serializer.is_valid(raise_exception=True):
-#             serializer.save()
-#             return Response(serializer.data)
 
 
