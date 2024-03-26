@@ -37,6 +37,13 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 #     def __str__(self):
 #         return self.email
 
+class NGO(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
 
 class Campaign(models.Model):
     name = models.CharField(max_length=200)

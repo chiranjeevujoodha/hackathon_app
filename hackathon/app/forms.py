@@ -9,9 +9,11 @@ from .models import *
 #Register User
 
 class CreateUserForm(UserCreationForm):
+    ngo_name = forms.CharField(max_length=100, required=True)
+
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2']
+        fields = ['username', 'password1', 'password2', 'ngo_name']
         
 
 # login User

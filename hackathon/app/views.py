@@ -46,6 +46,8 @@ def campaigns(request):
 @login_required
 def add_campaign(request):
     author = request.user
+    
+    ngo_name = NGO.objects.get(user_id = author)
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -56,8 +58,11 @@ def add_campaign(request):
         
         Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
         return redirect('campaigns')
+    
+    # context = {'ngo_name': ngo_name}
+    
 
-    return render(request, 'app/add_campaign.html')
+    return render(request, 'app/add_campaign.html', {'ngo_name': ngo_name})
 
 @login_required
 def update_campaign(request, id):
@@ -142,20 +147,19 @@ def signin(request):
 
 
 def signup(request):
-
-    form = CreateUserForm()
-
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-
+            user = form.save()
+            ngo_name = form.cleaned_data.get('ngo_name')
+            if ngo_name:
+                NGO.objects.create(user=user, name=ngo_name)
             return redirect('signin')
     
-    context = {'form':form}
+    else:
+        form = CreateUserForm()
 
-
-    return render(request, 'app/signup.html', context=context)
+    return render(request, 'app/signup.html', {'form':form})
 
 
 
