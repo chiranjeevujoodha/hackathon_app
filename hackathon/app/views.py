@@ -102,12 +102,12 @@ def contact(request):
     return render(request, 'app/contact.html')
 
 @login_required
-def profile(request):
-    user_id = request.user.id
-    # organisor = User.objects.get(id=id)
+def profile(request, id):
+    # user_id = request.user.id
+    data = Campaign.objects.filter(author_id=id)
     # data = Campaign.objects.filter(author_id = user_id)
 
-    return render(request, 'app/profile.html')
+    return render(request, 'app/profile.html', {'data': data})
 
 @login_required
 def dashboard(request):
