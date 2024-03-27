@@ -59,8 +59,6 @@ def add_campaign(request):
         Campaign.objects.create(name=name.capitalize(), author=author, organisor=organisor, location=location.capitalize(), date=date, description=description.capitalize())
         return redirect('campaigns')
     
-    # context = {'ngo_name': ngo_name}
-    
 
     return render(request, 'app/add_campaign.html', {'ngo_name': ngo_name})
 
@@ -109,7 +107,8 @@ def contact(request):
 @login_required
 def profile(request, id):
     # user_id = request.user.id
-    data = Campaign.objects.filter(author_id=id)
+    data = NGO.objects.get(user_id=id)
+    
     # data = Campaign.objects.filter(author_id = user_id)
 
     return render(request, 'app/profile.html', {'data': data})

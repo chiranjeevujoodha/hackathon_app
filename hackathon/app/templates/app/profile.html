@@ -8,54 +8,11 @@
 
 {% if request.user.is_authenticated %}
 
-{% for item in data %}
-
-    <h2>{{ item.organisor }}</h2>
-
-{% endfor %}
 
 
-<!-- <div class="profile-banner text-center">
-    <h1>Welcome, {{ request.user.username }}. </h1> 
-    <h1>Your Campaigns:</h1>
-</div>
+<h2>{{ data.name }}</h2>
 
 
-    <div class="campaigns-box" >
-        {% for item in data %}
-        <div class="campaigns item-1">
-
-            <div class="campaign-title">
-                <h2>{{ item.name }}</h2>
-                <h2>{{ item.author_id }}</h2>
-            </div>
-
-            <div class="details row">
-                <div class="campaign-details col-12 col-lg-4">
-                    <h5>Organisor: {{ item.organisor }} </h5>
-                    <h5>Location: {{ item.location }}</h5>
-                    <h5>Date: {{ item.date }}</h5>
-                </div>
-
-                <div class="campaign-description col-12 col-lg-4">
-                    <h5>Description:</h5>
-                    <p>{{ item.description }}</p>
-                </div>
-
-                <div class="campaign-btns col-12 col-lg-4">
-                    
-                    <a  id="btn_edit" class="btn btn-primary btn-custom" href="/update/{{item.id}}">Edit</a>
-                    <a id="btn_delete" class="btn btn-primary btn-custom" href="/delete/{{item.id}}">Delete</a>
-                    
-                </div>
-
-            </div>
-
-        </div>
-        {% endfor %}
-
-        
-    </div> -->
 
 
 {% endif %}
