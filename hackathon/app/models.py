@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 # Create your models here.
@@ -37,9 +37,20 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 #     def __str__(self):
 #         return self.email
 
+# class Member(AbstractUser):
+#     # Add any additional fields specific to members
+#     member_field = models.CharField(max_length=100)
+
+# class Organizer(AbstractUser):
+#     # Add any additional fields specific to organizers
+#     organizer_field = models.CharField(max_length=100)
+
+
+
 class NGO(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100, default = 'test@test.com')
 
     def __str__(self):
         return self.name

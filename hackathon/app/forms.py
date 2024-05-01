@@ -10,10 +10,20 @@ from .models import *
 
 class CreateUserForm(UserCreationForm):
     ngo_name = forms.CharField(max_length=100, required=True)
+    email = forms.CharField(max_length=100, required=True)
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'ngo_name']
+        fields = ['username', 'password1', 'password2', 'ngo_name', 'email']
+
+
+# class MemberSignUpForm(UserCreationForm):
+#     class Meta(UserCreationForm.Meta):
+#         model = Member
+
+
+# class SignUpForm(forms.Form):
+#     user_type = forms.ChoiceField(choices=(('member', 'Member'), ('organizer', 'Organizer')))
         
 
 # login User

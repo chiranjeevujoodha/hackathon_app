@@ -104,7 +104,7 @@ def contact(request):
 
     return render(request, 'app/contact.html')
 
-@login_required
+
 def profile(request, id):
     # user_id = request.user.id
     data = NGO.objects.get(user_id=id)
@@ -149,16 +149,30 @@ def signup(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save(commit=False)
+            user.username = form.cleaned_data.get('username').lower()
+            user.save()
+
             ngo_name = form.cleaned_data.get('ngo_name')
+            email = form.cleaned_data.get('email')
             if ngo_name:
-                NGO.objects.create(user=user, name=ngo_name)
+                NGO.objects.create(user=user, name=ngo_name, email=email)
             return redirect('signin')
     
     else:
         form = CreateUserForm()
 
     return render(request, 'app/signup.html', {'form':form})
+
+
+# def signup(request):
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+    
+#     else:
+#         form = SignUpForm()
+    
+#     return render(request, 'app/signup.html', {'form':form})
 
 
 
