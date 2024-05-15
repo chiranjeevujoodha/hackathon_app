@@ -4,6 +4,10 @@
 
 {% block content %}
 
+    <div class="container-campaigns">
+
+    
+
       <div class="header d-flex justify-content-center align-items-center">
         <h1>Happening Today</h1>
       </div>
@@ -31,12 +35,17 @@
                         <h5>Description:</h5>
                         <p>{{ item.description }}</p>
                     </div>
+
+                    {% if not user.is_authenticated %}
         
                     <div class="campaign-btns col-12 col-lg-4">
                         <h5>Participate</h5>
                         <a id="btn1" class="btn btn-primary btn-custom" href="">Interested</a>
                         <!-- <button id="btn1" class="btn btn-primary btn-custom" data-toggle="modal" data-target="#myModal" onclick="interested(this)">Interested</button> -->
                     </div>
+                    {% endif %}
+
+
                 </div>
             </div>
             {% endfor %}
@@ -49,7 +58,9 @@
 
 
 
-
+      
+        
+      
       <div class="header d-flex justify-content-center align-items-center">
         <h1>Upcoming Campaigns</h1>
       </div>
@@ -85,17 +96,23 @@
                         <h5>Description:</h5>
                         <p>{{ item.description }}</p>
                     </div>
+
+                    {% if not user.is_authenticated %}
         
                     <div class="campaign-btns col-12 col-lg-4">
                         <h5>Participate</h5>
                         <a id="btn1" class="btn btn-primary btn-custom" href="">Interested</a>
                         <!-- <button id="btn1" class="btn btn-primary btn-custom" data-toggle="modal" data-target="#myModal" onclick="interested(this)">Interested</button> -->
                     </div>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
         </div>
       </div>
+    </div>
+
+  </div>
 
     <footer >
         <div class="footer">

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import dj_database_url
 from pathlib import Path
 import os
 
@@ -93,6 +94,12 @@ DATABASES = {
         'PORT': '5432'
     }
 }
+
+# DATABASES["default"] = dj_database_url.parse("postgres://app_tqcr_user:1oPSvTEx5HUMdtg21RQFpIomU87gEf7D@dpg-coougav79t8c73ffinn0-a.oregon-postgres.render.com/app_tqcr")
+
+
+
+# postgres://app_tqcr_user:1oPSvTEx5HUMdtg21RQFpIomU87gEf7D@dpg-coougav79t8c73ffinn0-a.oregon-postgres.render.com/app_tqcr
 
 
 # Password validation

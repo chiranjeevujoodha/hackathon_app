@@ -250,12 +250,15 @@ html, body {
 .header {
     height: 100px;
     width: 100%;
-    background-color: #0056b3;
-    color: whitesmoke;
+    /* background-color: #; */
+    color: black;
     /* border: 1px solid red; */
 }
 
-
+.container-campaigns {
+    /* border: 1px solid black; */
+    height: 100%;
+}
 
 
 .add-new-btn {

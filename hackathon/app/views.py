@@ -105,6 +105,7 @@ def contact(request):
     return render(request, 'app/contact.html')
 
 
+
 def profile(request, id):
     # user_id = request.user.id
     data = NGO.objects.get(user_id=id)
