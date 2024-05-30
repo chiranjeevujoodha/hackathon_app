@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.views.generic import UpdateView
+from django.contrib import messages
 from .models import Campaign, Contact
 from .forms import CreateUserForm, LoginForm, CampaignForm
 from django.contrib.auth import authenticate
@@ -158,6 +159,8 @@ def signup(request):
             email = form.cleaned_data.get('email')
             if ngo_name:
                 NGO.objects.create(user=user, name=ngo_name, email=email)
+
+            messages.success(request, 'Signed up successfully. Please log in.')    
             return redirect('signin')
     
     else:

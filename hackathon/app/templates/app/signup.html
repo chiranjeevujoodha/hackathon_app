@@ -29,6 +29,20 @@
 
 
 <body>
+    {% if form.errors %}
+    <div class="error-messages alert alert-danger" id="alert-custom" role="alert">
+        <ul id="alert-msg">
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 
     <div class=" container mt-5 col-lg-4">
         <div class="signin-container">

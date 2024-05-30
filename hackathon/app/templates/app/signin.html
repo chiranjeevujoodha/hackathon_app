@@ -32,6 +32,14 @@
 
 <body>
 
+    {% if messages %}
+    <div class="messages alert alert-success" id="alert-custom">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <div class=" container mt-5 col-lg-4">
         <div class="signin-container">
           <form action="" method="post">
