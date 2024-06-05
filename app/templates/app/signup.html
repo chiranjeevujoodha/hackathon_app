@@ -1,0 +1,88 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<!-- <div class="container">
+    <h3>Create your account</h3>
+
+    <br>
+    <hr>
+
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <br>
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+
+    </form>
+
+    <br>
+
+    <div class='text-center'>
+        <p>Already have an account?</p> <a href="{% url 'signin' %}">Login</a>
+    </div>
+
+</div> -->
+
+
+<body>
+    {% if form.errors %}
+    <div class="error-messages alert alert-danger" id="alert-custom" role="alert">
+        <ul class="alert-msg">
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class=" container mt-5 col-lg-4">
+        <div class="signin-container">
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="signin-header text-center">
+                <h1>Sign Up</h1>
+                <p>Already a user? <a href="{% url 'signin' %}">Sign in</a></p>
+            </div>
+            <hr>
+              <label for="username">Username</label>
+              {{ form.username }}
+
+              <label for="ngo_name">NGO Name</label>
+              {{ form.ngo_name }}
+
+              <label for="email">Email</label>
+              {{ form.email }}
+
+              <label for="password">Password</label>
+              {{ form.password1 }}
+
+              <label for="password">Confirm Password</label>
+              {{ form.password2 }}
+<!-- 
+              <label for="member">Member:</label>
+              <input type="checkbox" id="member" name="user_type" value="member">
+      
+              <label for="organizer">Organizer:</label>
+              <input type="checkbox" id="organizer" name="user_type" value="organizer"> -->
+
+
+            <div class="d-flex justify-content-center">
+
+                <button  type="submit" id="signin-btn" >Sign up</button>
+            </div>
+          </form>
+      </div>
+
+      </div>
+    
+</body>
+{% endblock %}
