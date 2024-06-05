@@ -35,9 +35,21 @@
     {% if messages %}
     <div class="messages alert alert-success" id="alert-custom">
         {% for message in messages %}
-            <p>{{ message }}</p>
+            <p class="alert-msg">{{ message }}</p>
         {% endfor %}
     </div>
+    {% endif %}
+
+    {% if form.errors %}
+        <div class="error-messages alert alert-danger" id="signin-error" >
+            <ul class="alert-msg">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        {{ error }}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
     {% endif %}
 
     <div class=" container mt-5 col-lg-4">

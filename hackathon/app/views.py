@@ -139,6 +139,8 @@ def signin(request):
             if user is not None:
                 auth.login(request, user)
                 return redirect('campaigns')
+            else:
+                form.add_error(None, 'Incorrect username or password.')
             
     context = {'form':form}
 

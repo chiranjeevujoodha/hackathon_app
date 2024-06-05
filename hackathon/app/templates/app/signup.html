@@ -31,7 +31,7 @@
 <body>
     {% if form.errors %}
     <div class="error-messages alert alert-danger" id="alert-custom" role="alert">
-        <ul id="alert-msg">
+        <ul class="alert-msg">
             {% for field, errors in form.errors.items %}
                 {% for error in errors %}
                     {{ error }}
