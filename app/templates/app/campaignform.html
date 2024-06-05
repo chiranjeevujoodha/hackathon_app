@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+
+{% block title %} Campaigns {% endblock %}
+
+{% block content %}
+    <div class="container new-campaign" id="campaigns-form">
+        <div class="new-campaign-form">
+            <h5 class="text-center">Add New Campaign</h5>
+            <hr>               
+            <form method="post" id="campaignForm">
+                {% csrf_token %}
+                <label for="name">Name of Campaign</label>
+                {{form.name}}
+    
+                <label for="organisor">Organisor</label>
+                {{form.organisor}}
+    
+                <label for="location">Location</label>
+                {{form.location}}
+    
+                <label for="date">Date</label>
+                {{form.date}}
+    
+                <label for="description">Description</label>
+                {{form.description}}
+    
+                <button type="submit" id="campaign-btn" >Submit</button>
+            </form>
+        </div>
+    
+      </div>
+{% endblock %}

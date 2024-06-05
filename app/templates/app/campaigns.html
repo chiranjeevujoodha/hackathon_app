@@ -1,0 +1,132 @@
+{% extends 'app/base.html' %}
+
+{% block title %} Campaigns {% endblock %}
+
+{% block content %}
+
+    <div class="container-campaigns">
+
+    
+
+      <div class="header d-flex justify-content-center align-items-center">
+        <h1>Happening Today</h1>
+      </div>
+
+      <div class="camp-container">
+
+        <div class="campaigns-box" >
+          {% if today_data %}
+            {% for item in today_data %}
+            <div class="campaigns item-1">
+
+                <div class="campaign-title">
+                    <h2>{{ item.name }}</h2>
+                    <!-- <h2>{{ item.author_id }}</h2> -->
+                </div>
+
+                <div class="details row">
+                    <div class="campaign-details col-12 col-lg-4">
+                        <h5>Organisor: <a href="/profile/{{ item.author_id }}">{{ item.organisor }}</a>  </h5>
+                        <h5>Location: {{ item.location }}</h5>
+                        <h5>Date: {{ item.date }}</h5>
+                    </div>
+        
+                    <div class="campaign-description col-12 col-lg-4">
+                        <h5>Description:</h5>
+                        <p>{{ item.description }}</p>
+                    </div>
+
+                    {% if not user.is_authenticated %}
+        
+                    <div class="campaign-btns col-12 col-lg-4">
+                        <h5>Participate</h5>
+                        <a id="btn1" class="btn btn-primary btn-custom" href="">Interested</a>
+                        <!-- <button id="btn1" class="btn btn-primary btn-custom" data-toggle="modal" data-target="#myModal" onclick="interested(this)">Interested</button> -->
+                    </div>
+                    {% endif %}
+
+
+                </div>
+            </div>
+            {% endfor %}
+          {% else %}
+            <p>No Events happening today</p>
+          {% endif %}
+        </div>
+
+      </div>
+
+
+
+      
+        
+      
+      <div class="header d-flex justify-content-center align-items-center">
+        <h1>Upcoming Campaigns</h1>
+      </div>
+
+      <div class="camp-container">
+
+        <!-- {% if user.is_authenticated %}
+
+          <div class="add-new-btn">
+            <a class="btn btn-primary" href="{% url 'add_campaign' %}">Add New Campaign</a>
+          </div>
+    
+        {% endif %} -->
+
+
+        <div class="campaigns-box" >
+            {% for item in data %}
+            <div class="campaigns item-1">
+    
+                <div class="campaign-title">
+                    <h2>{{ item.name }}</h2>
+                    <!-- <h2>{{ item.author_id }}</h2> -->
+                </div>
+    
+                <div class="details row">
+                    <div class="campaign-details col-12 col-lg-4">
+                        <h5>Organisor: <a href="/profile/{{ item.author_id }}">{{ item.organisor }}</a>  </h5>
+                        <h5>Location: {{ item.location }}</h5>
+                        <h5>Date: {{ item.date }}</h5>
+                    </div>
+        
+                    <div class="campaign-description col-12 col-lg-4">
+                        <h5>Description:</h5>
+                        <p>{{ item.description }}</p>
+                    </div>
+
+                    {% if not user.is_authenticated %}
+        
+                    <div class="campaign-btns col-12 col-lg-4">
+                        <h5>Participate</h5>
+                        <a id="btn1" class="btn btn-primary btn-custom" href="">Interested</a>
+                        <!-- <button id="btn1" class="btn btn-primary btn-custom" data-toggle="modal" data-target="#myModal" onclick="interested(this)">Interested</button> -->
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    <footer >
+        <div class="footer">
+
+                <p> &copy; Chiranjeev Ujoodha 2023</p>
+
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+{% endblock %}
