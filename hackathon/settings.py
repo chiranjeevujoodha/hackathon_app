@@ -98,7 +98,7 @@ DATABASES = {
 }
 
 database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url)
+DATABASES["default"] = dj_database_url.parse('postgres://hackathon_app_user:j2XzpYh0rdQhx1b3Uf3OPluzveZ81Uee@dpg-cpg8t3mct0pc73d9kqng-a.oregon-postgres.render.com/hackathon_app')
 
 # postgres://hackathon_app_user:j2XzpYh0rdQhx1b3Uf3OPluzveZ81Uee@dpg-cpg8t3mct0pc73d9kqng-a.oregon-postgres.render.com/hackathon_app
 
