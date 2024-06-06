@@ -254,6 +254,12 @@ html, body {
     /* border: 1px solid red; */
 }
 
+.container-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .container-campaigns {
     /* border: 1px solid black; */
     height: 100%;
