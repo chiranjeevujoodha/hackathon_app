@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q0b(0uhuwrij#_(w_uimxifyrtm)5yf(*hxw_qm^*5i7dntr-d'
-# SECRET_KEY = os.environ.get("SECRET_KEY")
+# SECRET_KEY = 'django-insecure-q0b(0uhuwrij#_(w_uimxifyrtm)5yf(*hxw_qm^*5i7dntr-d'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -99,10 +99,10 @@ DATABASES = {
     }
 }
 
-external_db = 'postgres://hackathon_app_user:j2XzpYh0rdQhx1b3Uf3OPluzveZ81Uee@dpg-cpg8t3mct0pc73d9kqng-a.oregon-postgres.render.com/hackathon_app'
+# external_db = 'postgres://hackathon_app_user:j2XzpYh0rdQhx1b3Uf3OPluzveZ81Uee@dpg-cpg8t3mct0pc73d9kqng-a.oregon-postgres.render.com/hackathon_app'
 
 database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(external_db)
+DATABASES["default"] = dj_database_url.parse(database_url)
 
 
 # postgres://app_tqcr_user:1oPSvTEx5HUMdtg21RQFpIomU87gEf7D@dpg-coougav79t8c73ffinn0-a.oregon-postgres.render.com/app_tqcr
