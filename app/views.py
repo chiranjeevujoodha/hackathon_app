@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.views.generic import UpdateView
 from django.contrib import messages
 from .models import Campaign, Contact
-from .forms import CreateUserForm, LoginForm, CampaignForm, ProfileForm
+from .forms import CreateUserForm, LoginForm, CampaignForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import auth, User
 from rest_framework.views import APIView
