@@ -38,9 +38,4 @@ class Contact(models.Model):
         return f'{self.fname} {self.lname}'
     
 
-class Profile(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
-    email = models.CharField(max_length=50)
-    about_desc = models.CharField(max_length=255)
-    phone = models.CharField(max_length=255)
+

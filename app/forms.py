@@ -16,16 +16,7 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2', 'ngo_name', 'email']
 
-class ProfileForm(forms.ModelForm):
-    name = forms.CharField()
-    address = forms.CharField()
-    email = forms.CharField()
-    about_desc = forms.CharField()
-    phone = forms.CharField()  
 
-    class Meta:
-        model = Profile
-        fields = ('name', 'address', 'email', 'about_desc', 'phone')   
 
 # login User
         
