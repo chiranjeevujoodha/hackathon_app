@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.views.generic import UpdateView
 from django.contrib import messages
 from .models import Campaign, Contact
-from .forms import CreateUserForm, LoginForm, CampaignForm
+from .forms import CreateUserForm, LoginForm, CampaignForm, ProfileForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import auth, User
 from rest_framework.views import APIView
@@ -18,6 +18,14 @@ from datetime import date
 
 def home(request):
     return render(request, 'app/home.html')
+
+def edit_profile(request):
+
+    form = ProfileForm()
+
+    context = {'form': form}
+
+    return render(request, 'app/edit_profile.html', context=context)
 
 
 def campaignform(request):

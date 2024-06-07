@@ -19,6 +19,9 @@ from datetime import date
 def home(request):
     return render(request, 'app/home.html')
 
+def edit_profile(request):
+    return render(request, 'app/edit_profile.html')
+
 
 def campaignform(request):
     form = CampaignForm()

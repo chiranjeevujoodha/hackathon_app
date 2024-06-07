@@ -16,15 +16,16 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2', 'ngo_name', 'email']
 
+class ProfileForm(forms.ModelForm):
+    name = forms.CharField()
+    address = forms.CharField()
+    email = forms.CharField()
+    about_desc = forms.CharField()
+    phone = forms.CharField()  
 
-# class MemberSignUpForm(UserCreationForm):
-#     class Meta(UserCreationForm.Meta):
-#         model = Member
-
-
-# class SignUpForm(forms.Form):
-#     user_type = forms.ChoiceField(choices=(('member', 'Member'), ('organizer', 'Organizer')))
-        
+    class Meta:
+        model = Profile
+        fields = ('name', 'address', 'email', 'about_desc', 'phone')   
 
 # login User
         

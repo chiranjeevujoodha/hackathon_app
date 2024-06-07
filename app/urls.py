@@ -20,6 +20,7 @@ urlpatterns = [
     path('signout/', views.signout, name='signout'),
     path('profile/<id>', views.profile, name='profile'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('edit-profile/', views.edit_profile, name='edit_profile'),
 
 ]
 
