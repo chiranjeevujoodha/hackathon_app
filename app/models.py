@@ -43,4 +43,4 @@ class Profile(models.Model):
     address = models.CharField(max_length=100)
     email = models.CharField(max_length=50)
     about_desc = models.CharField(max_length=255)
-    phone = PhoneNumberField(unique=True, null=False, blank=False)
+    phone = models.CharField(max_length=255)
