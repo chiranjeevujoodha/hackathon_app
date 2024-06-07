@@ -21,11 +21,8 @@ def home(request):
 
 def edit_profile(request):
 
-    form = ProfileForm()
 
-    context = {'form': form}
-
-    return render(request, 'app/edit_profile.html', context=context)
+    return render(request, 'app/edit_profile.html')
 
 
 def campaignform(request):
